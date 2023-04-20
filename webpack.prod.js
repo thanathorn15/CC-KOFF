@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizer = require('css-minimizer-webpack-plugin')
 const commonConfig = require('./webpack.config')
 
-const devConfig = merge(commonConfig, {
+const proConfig = merge(commonConfig, {
     mode : 'production',
 
     output: {
@@ -27,11 +27,7 @@ const devConfig = merge(commonConfig, {
 
       plugins: [
         new MiniCssExtractPlugin(),
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-          template: "./src/template/index.html",
-        }),
-      ],
+        new CleanWebpackPlugin(),],
 
       optimization: {
         minimizer: [
@@ -50,5 +46,5 @@ const devConfig = merge(commonConfig, {
     },
 });
 
-module.exports = devConfig;
+module.exports = proConfig;
     
